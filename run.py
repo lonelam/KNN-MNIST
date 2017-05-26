@@ -2,23 +2,23 @@ import knn
 import matplotlib.pyplot as plt
 import pylab
 
-# fig = plt.figure()
-# for i in range(1, 5):
-#     sample, realLabel, predictLabel = knn.knn(10)
-#     sample = sample.reshape(28, 28)
-#     axes = fig.add_subplot(2, 2, i)
-#     plt.title('the prediction is ' + predictLabel)
-#     plt.imshow(sample)
-#
-# plt.show()
-
-
 fig = plt.figure()
-for i in range(10):
-    sample, realLabel, predictLabel = knn.knn(30)
+for i in range(1, 5):
+    sample, realLabel, predictLabel = knn.knn(50)
     sample = sample.reshape(28, 28)
-    axes = fig.add_subplot(111)
-    plt.title('the prediction result is ' + predictLabel)
-    plt.imshow(sample, cmap='BuGn')
-    plt.show()
+    axes = fig.add_subplot(2, 2, i)
+    plt.title('the prediction is ' + predictLabel)
+    plt.imshow(sample)
+
+plt.show()
+
+
+# fig = plt.figure()
+# for i in range(10):
+#     sample, realLabel, predictLabel = knn.knn(30)
+#     sample = sample.reshape(28, 28)
+#     axes = fig.add_subplot(111)
+#     plt.title('the prediction result is ' + predictLabel)
+#     plt.imshow(sample, cmap='BuGn')
+#     plt.show()
 
