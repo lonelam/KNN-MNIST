@@ -21,4 +21,3 @@ plt.show()
 #     plt.title('the prediction result is ' + predictLabel)
 #     plt.imshow(sample, cmap='BuGn')
 #     plt.show()
-
