@@ -3,7 +3,7 @@ import struct
 import matplotlib.pyplot as plt
 import os
 
-filename = '/Users/zhangmengxiao/Documents/codingfile/python/mnistConverter/t10k-images-idx3-ubyte'
+filename = '/Users/zhangmengxiao/Documents/codingfile/python/mnistConverter/train-images-idx3-ubyte'
 binfile = open(filename, 'rb')
 buf = binfile.read()
 
@@ -11,9 +11,9 @@ index = 0
 magic, numImages, numRows, numColumns = struct.unpack_from('>IIII', buf, index)
 index = index + struct.calcsize('>IIII')
 imarray = []
-myfile = open('./testSet/data.txt', 'w')
+myfile = open('./trainingSet/data.txt', 'w')
 
-for i in range(10000):
+for i in range(5000):
     myfile.write(str(i) + '\n')
     im = struct.unpack_from('>784B', buf, index)
     index = index + struct.calcsize('>784B')

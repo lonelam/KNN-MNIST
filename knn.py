@@ -8,7 +8,7 @@ def knn(k):
     trainingSet = getTrainingSet()
     distlist = []
     for i in trainingSet:
-        diff = sample - i[0]
+        diff = np.subtract(sample, i[0])
         sq = diff ** 2
         sum = sq.sum(axis=0)
         distlist.append((sum, i[1]))
@@ -42,13 +42,9 @@ def getTrainingSet():
     str2 = myfile2.readlines()
     splited = str1.split('\t')
     splited.pop()
+
     for i in range(len(splited)):
-        x = splited[i]
-        tempstr = x.replace('\n', '')
-        templist = tempstr.split(' ')
-
-        del templist[0]
-
+        templist = splited[i].replace('\n', '').split(' ')[1:]
         noSpace = [int(element) for element in templist if element != '']
 
         splited[i] = np.array(noSpace).astype(np.float64)
@@ -59,12 +55,12 @@ def getTrainingSet():
 
 def randomSample():
     list0 = []
-    seed = random.randint(0, 9999)
+    seed = random.randint(0, 5000)
     datafile = open('testSet/data.txt')
     str = datafile.read()
     splited = str.split('\t')
-    for i in range(len(splited)):
-        splited[i] = splited[i].replace('\n', '')
+    splited = [ele.replace('\n', '') for ele in splited]
+
     list0.append(splited[seed])
     datafile.close()
 
