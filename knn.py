@@ -1,11 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import numpy as np
 import random
 import operator
 
 def knn(k):
-    sample, label = randomSample()
+    sample, label = _randomSample()
     sample = np.array(sample)
-    trainingSet = getTrainingSet()
+    trainingSet = _getTrainingSet()
     distlist = []
     for i in trainingSet:
         diff = np.subtract(sample, i[0])
@@ -35,7 +38,7 @@ def knn(k):
     #b = np.dtype(trainingSet[0][0])
 
 
-def getTrainingSet():
+def _getTrainingSet():
     myfile1 = open('./trainingSet/data.txt')
     myfile2 = open('./trainingSet/labels.txt')
     str1 = myfile1.read()
@@ -53,7 +56,7 @@ def getTrainingSet():
 
     return splited
 
-def randomSample():
+def _randomSample():
     list0 = []
     seed = random.randint(0, 5000)
     datafile = open('testSet/data.txt')
